@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body{
+	background-image: url("/img/resized_final_aviary.jpg");
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+h1 {
+	margin: 30px 0px;
+	color: #313131;
+	font-size: 42px;
+	font-weight: 900;
+	text-align: center;
+}
+
+h1 span {
+	font-weight: 300;
+}
+
+h2 {
+	margin: 30px 0px;
+	color: #313131;
+	font-size: 32px;
+	font-weight: 900;
+	text-align: center;
+}
+
+.date-picker {
+	position: relative;
+	max-width: 320px;
+	/* height: 60px;
+    background-color: #167e56; */
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+.date-picker .selected-date {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: #313131;
+	font-size: 28px;
+}
+
+.date-picker .dates {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+
+	background-color: #d9d5d6;
+}
+
+.date-picker .dates .month {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #d9d5d6;
+}
+
+.date-picker .dates .month .arrows {
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #da306f;
+	font-size: 20px;
+}
+
+.date-picker .dates .month .arrows:hover {
+	background-color:  #da306f;
+}
+
+
+.date-picker .dates .days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	height: 200px;
+}
+.date-picker .dates .days .day { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #313131;
+}
+.date-picker .dates .days .day.today {
+	background-color:  #d50548;
+}
+
+.date-picker .dates .days .day.selected {
+	background-color:   #af030b;
+}
+
