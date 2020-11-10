@@ -48,7 +48,7 @@ async function main(selectedDay){
     /**
      * Fetches data from the DB hourly and send the sounds to be played to the calendar app
      */
-    const uri = "mongodb+srv://admin:Adm!n1password@cluster0.nwygw.mongodb.net/Birds?retryWrites=true&w=majority"
+    const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
  
 
     const client = new MongoClient(uri);
@@ -137,7 +137,7 @@ function fetchSounds(bird){
 }
 
 async function findBirdSounds(selectedDay){
-    const uri = "mongodb+srv://admin:Adm!n1password@cluster0.nwygw.mongodb.net/Birds?retryWrites=true&w=majority"
+    const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
     console.log("out: "+ selectedDay);
     await client.connect();
