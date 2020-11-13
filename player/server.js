@@ -160,8 +160,7 @@ async function findBirdSounds(selectedDay){
     //filter by min, only display sounds entered at a particular time
     if(results.length>0){
         let now_min = new Date().getMinutes().toString();
-        //let time = selectedday+" 0?"+hour+":0?"+now_min;
-        let time = selectedday+" 0?15:0?"+now_min;
+        let time = selectedday+" 0?"+hour+":0?"+now_min;
         console.log(time);
         let m = 0;
         detectedBirds = getBirds(time, results);
@@ -170,7 +169,7 @@ async function findBirdSounds(selectedDay){
         }
         setInterval(function(){ 
             let now_min = new Date().getMinutes().toString();
-            let time = selectedday+" 0?15:0?"+now_min;
+            let time = selectedday+" 0?"+hour+":0?"+now_min;
             console.log(time);
             detectedBirds = getBirds(time, results);
             if (detectedBirds.length>0){
