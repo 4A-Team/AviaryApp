@@ -47,16 +47,16 @@ function newConnection(socket){
 async function main(selectedDay){
     /**
      * Fetches data from the DB hourly and send the sounds to be played to the calendar app
+    
+     */
     const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
  
 
     const client = new MongoClient(uri);
-    
-     */
 
     try {
         // Connect to the MongoDB cluster
-        //await client.connect();
+        await client.connect();
  
         // Make the appropriate DB calls
         setAsyncInterval(findBirdSounds(selectedDay), (60*60000)); //Searches the DB every 60min
@@ -64,7 +64,7 @@ async function main(selectedDay){
     } catch (e) {
         console.error(e);
     } finally {
-        //await client.close();
+        await client.close();
     }
 }
 
@@ -138,7 +138,6 @@ function fetchSounds(bird){
 }
 
 async function findBirdSounds(selectedDay){
-    /*
     const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
     //console.log("out: "+ selectedDay);
@@ -151,6 +150,7 @@ async function findBirdSounds(selectedDay){
     const cursor = await client.db("Birds").collection("Birds").find({'datetime': {'$regex':"^"+selectedday+" 0?"+hour}});
 
 
+    /*
     //convert the fetched data entries to list of dictionaries
     const results = await cursor.toArray();
     */
