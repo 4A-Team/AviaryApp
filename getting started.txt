@@ -5,3 +5,7 @@ cd player
 node server.js
 
 go to http://localhost:8887/ on broswer (not chrome)
+
+Hosted at https://aviary-app.herokuapp.com/
+The sound doesn't work on chrome because of some chrome constraints 
+You need to select a date if it to start working with the current time - or else, it will only play the background sound.
