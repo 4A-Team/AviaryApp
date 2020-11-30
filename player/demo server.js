@@ -32,7 +32,7 @@ io.sockets.on('connection', newConnection);
 
 //do this when a new client connect to the server
 function newConnection(socket){
-    console.log('new connection detected: '+ socket.id);
+    //console.log('new connection detected: '+ socket.id);
 
     //it receives the date selected on the calendar interface and send it to dateMessage function.
     socket.on('dateSelected', dateMessage); 
@@ -47,15 +47,16 @@ function newConnection(socket){
 async function main(selectedDay){
     /**
      * Fetches data from the DB hourly and send the sounds to be played to the calendar app
-     */
     const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
  
 
     const client = new MongoClient(uri);
- 
+    
+     */
+
     try {
         // Connect to the MongoDB cluster
-        await client.connect();
+        //await client.connect();
  
         // Make the appropriate DB calls
         setAsyncInterval(findBirdSounds(selectedDay), (60*60000)); //Searches the DB every 60min
@@ -63,7 +64,7 @@ async function main(selectedDay){
     } catch (e) {
         console.error(e);
     } finally {
-        await client.close();
+        //await client.close();
     }
 }
 
@@ -130,16 +131,17 @@ function fetchSounds(bird){
         let num = Math.floor(Math.random() * listing.length);  
         let soundPath =  '/Sounds/'+bird+'/'+ listing[num];
         io.sockets.emit('sounds', soundPath);
-        console.log(soundPath);
+        //console.log(soundPath);
         //returns the path to the randomly selected sound
         return soundPath;
     });
 }
 
 async function findBirdSounds(selectedDay){
+    /*
     const uri = "mongodb+srv://admin:<password>@cluster0.nwygw.mongodb.net/<db name>?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
-    console.log("out: "+ selectedDay);
+    //console.log("out: "+ selectedDay);
     await client.connect();
 
     //filter by hour!!!!!
@@ -150,9 +152,10 @@ async function findBirdSounds(selectedDay){
 
 
     //convert the fetched data entries to list of dictionaries
-    //const results = await cursor.toArray();
-    
-    //remove the comment on result!!!!
+    const results = await cursor.toArray();
+    */
+
+    //remove the comment on result above!!!!
     let results = [
         {
             datetime: '2020-11-07 15:01:33',
@@ -305,7 +308,7 @@ async function findBirdSounds(selectedDay){
         let now_min = new Date().getMinutes().toString();
         //let time = selectedday+" 0?"+hour+":0?"+now_min;
         let time = selectedday+" 0?15:0?"+now_min;
-        console.log(time);
+        //console.log(time);
         let m = 0;
         detectedBirds = getBirds(time, results);
         if (detectedBirds.length>0){
@@ -314,7 +317,7 @@ async function findBirdSounds(selectedDay){
         setInterval(function(){ 
             let now_min = new Date().getMinutes().toString();
             let time = selectedday+" 0?15:0?"+now_min;
-            console.log(time);
+            //console.log(time);
             detectedBirds = getBirds(time, results);
             if (detectedBirds.length>0){
                 fetchSounds(detectedBirds[0]);

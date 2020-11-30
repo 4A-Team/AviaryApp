@@ -63,12 +63,12 @@ function goToPrevMonth (e) {
 socket.on('sounds', getSounds);
 function getSounds(data){
 	var player = document.getElementById('player');
-	console.log('sound gotten: '+ data)
+	//console.log('sound gotten: '+ data)
 	player.setAttribute('src', data);
-	console.log("playing audio "+player);
+	//console.log("playing audio "+player);
 	var today = new Date();
 	var time = (today.getHours()*3600) + (today.getMinutes() *60)+ today.getSeconds();
-	console.log("current time - "+ time.toString());
+	//console.log("current time - "+ time.toString());
 	
 	//player.currentTime = today.getSeconds();
 	player.play();
@@ -126,7 +126,7 @@ function populateDates (e) {
 		if (currentday == (i + 1) && selectedYear == currentyear && selectedMonth+1 == currentmonth) {
 			//day_element.classList.add('selected'); 
 			
-			console.log((i+1).toString()+selectedMonth.toString());
+			//console.log((i+1).toString()+selectedMonth.toString());
 			day_element.classList.add('today');
 		}
 		// if (day == (i + 1) && selectedYear == year && selectedMonth == month) {
@@ -156,8 +156,8 @@ function populateDates (e) {
 			
 			//adding +2 to day because it counts from zero, and ISO is usually a day behind for days behind today's date - making it 2 days.
 			var data = new Date(year + '-' + (month + 1) + '-' + (i + 2)).toISOString();
-			console.log(selectedDate);
-			console.log("sending: "+data);
+			//console.log(selectedDate);
+			//console.log("sending: "+data);
 			
 			//sending date to server
 			socket.emit('dateSelected', data);
