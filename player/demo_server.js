@@ -15,8 +15,8 @@ app.use('/img', express.static('img'))
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname,'/calendar.html'));
 });
-
-var server = app.listen(8887);
+var PORT = process.env.PORT || 8887;
+var server = app.listen(PORT);
 
 
 
