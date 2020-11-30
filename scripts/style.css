@@ -11,6 +11,7 @@ html {
 
 body{
 	background-image: url("/img/resized_final_aviary.jpg");
+	/*background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
 }
 
