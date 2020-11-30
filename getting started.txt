@@ -1,7 +1,6 @@
 how to run it
 cd desktop
 cd Aviary
-cd player
 node server.js
 
 go to http://localhost:8887/ on broswer (not chrome)
