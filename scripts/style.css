@@ -10,9 +10,16 @@ html {
 }
 
 body{
+	height: 100vh;
+	
 	background-image: url("/img/resized_final_aviary.jpg");
 	/*background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
+	
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1 {
