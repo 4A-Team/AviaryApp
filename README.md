@@ -7,6 +7,7 @@ clone the repo
 Open the terminal, go to the repo directory and run
 
 cd AviaryApp
+
 node server.js
 
 go to http://localhost:8887/ on broswer (allow audio autoplay if it's disabled in browser)
