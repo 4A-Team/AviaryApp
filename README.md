@@ -1,6 +1,8 @@
 # Aviary Bird App
 The project bird generative sound web interface code
 
+A detailed description of the project and its background is provided by Eryk in his <a href="https://www.cyberneticforests.com/news/enter-the-aviary-time-travel-with-birds-and-machines">blog post</a>
+
 ## How to run it
 clone the repo
 
